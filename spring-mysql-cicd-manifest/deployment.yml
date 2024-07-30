@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-mysql-cicd
+  labels:
+    app: spring-mysql-cicd
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: spring-mysql-cicd
+  template:
+    metadata:
+      labels:
+        app: spring-mysql-cicd
+    spec:
+      containers:
+      - name: spring-mysql-cicd
+        image: raziels/spring-mysql-cicd:6ecfca0d
+        ports:
+        - containerPort: 8080
